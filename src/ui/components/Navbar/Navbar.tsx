@@ -4,14 +4,14 @@ import { AuthContext } from '../../../auth/context/AuthContext';
 
 export const Navbar = () => {
 
-	const {user} = useContext(AuthContext);
+	const { user, logout } = useContext(AuthContext);
 	const navigate = useNavigate();
-	console.log(user);
-	console.log();
 	const onLogout = () => {
-		navigate('/login',{
-			replace:true
+		navigate('/login', {
+			replace: true
 		});
+		logout();
+
 	}
 
 	return (
@@ -36,12 +36,12 @@ export const Navbar = () => {
 					>
 						DC
 					</NavLink>
-					<NavLink 
-								className={ ({isActive}) => `nav-item nav-link  ${ isActive ? 'active':'' }` }
-								to="/search"
-						  >
-								Search
-						  </NavLink>
+					<NavLink
+						className={({ isActive }) => `nav-item nav-link  ${isActive ? 'active' : ''}`}
+						to="/search"
+					>
+						Search
+					</NavLink>
 				</div>
 			</div>
 
